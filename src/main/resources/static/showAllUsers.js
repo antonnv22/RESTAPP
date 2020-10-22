@@ -20,7 +20,7 @@ function showAllUsers(){
                 var cell4 = row.insertCell();
                 cell4.innerHTML = user.email;
                 var cell5 = row.insertCell();
-                cell5.innerHTML = getRolesFromUser(user).textContent;
+                cell5.innerHTML = listRoles(user).textContent;
 
                 var cell6 = row.insertCell();
                 cell6.innerHTML =

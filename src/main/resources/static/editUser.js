@@ -1,9 +1,11 @@
 function editUser() {
+
+    let form = window.formEditUser.editRoles;
     let new_Roles = "";
-    for (var i = 0; i < window.formEditUser.editRoles.length; i++) {
-        var option = window.formEditUser.editRoles.options[i];
+    for (var i = 0; i < form.length; i++) {
+        var option = form.options[i];
         if (option.selected) {
-            new_Roles = new_Roles.concat(option.value + (i != (window.formEditUser.editRoles.length - 1) ? "," : ""));
+            new_Roles = new_Roles.concat(option.value + (i != (form.length - 1) ? "," : ""));
         }
     }
 

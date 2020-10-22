@@ -19,7 +19,7 @@ function showUserInfo(user) {
             var cell4 = row.insertCell(4);
             cell4.innerHTML = user.email;
             var cell5 = row.insertCell(5);
-            cell5.innerHTML = getRolesFromUser(user).textContent;
+            cell5.innerHTML = listRoles(user).textContent;
         });
 
 }
