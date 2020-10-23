@@ -22,7 +22,6 @@ public class DataInitialaizer {
     }
 
     @PostConstruct
-    @Transactional
     public void Init() {
         Set<Role> allRoles = new HashSet<>();
         allRoles.add(new Role("ADMIN"));

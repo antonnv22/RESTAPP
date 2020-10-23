@@ -5,6 +5,7 @@ function deleteUser(id) {
         headers: {"Content-type": "application/json; charset=UTF-8"}
     })
         .then(response => {
-            showAllUsers();
+            // showAllUsers();
+            document.getElementById("tBody").deleteRow(id - 1);
         });
 }
