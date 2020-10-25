@@ -1,5 +1,4 @@
 function newUser() {
-
     let form = window.formNewUser.newRoles;
     let new_Roles = "";
     let rolesList = document.createElement('ul');
@@ -27,29 +26,33 @@ function newUser() {
         }),
         headers: {"Content-type": "application/json; charset=UTF-8"}
     })
-        .then(response => {
-             var tableBody = document.getElementById("tBody");
-             var row = tableBody.insertRow();
-             let id = tableBody.rows.length;
-             var cell0 = row.insertCell();
-             cell0.innerHTML = id;
-             var cell1 = row.insertCell();
-             cell1.innerHTML = window.formNewUser.newName.value;
-             var cell2 = row.insertCell();
-             cell2.innerHTML = window.formNewUser.newLastName.value;
-             var cell3 = row.insertCell();
-             cell3.innerHTML = window.formNewUser.newAge.value;
-             var cell4 = row.insertCell();
-             cell4.innerHTML = window.formNewUser.newEmail.value;
-             var cell5 = row.insertCell();
-             cell5.innerHTML = rolesList.textContent;
-             var cell6 = row.insertCell();
-             cell6.innerHTML =
-                '<button type="button" onclick="getModalEdit(' + id +')" class="btn btn-primary btn-sm">Edit</button>';
+        .then(response => response.json())
+        .then(user => {
+//        .then(response => {
 
-             var cell7 = row.insertCell();
-             cell7.innerHTML =
-                '<button type="button" onclick="getModalDelete(' + id +')" class="btn btn-danger btn-sm">Delete</button>';
+            var tableBody = document.getElementById("tBody");
+            var row = tableBody.insertRow();
+            //let id = tableBody.rows.length;
+            //let id = userCount;
+            var cell0 = row.insertCell();
+            cell0.innerHTML = user.id;
+            var cell1 = row.insertCell();
+            cell1.innerHTML = window.formNewUser.newName.value;
+            var cell2 = row.insertCell();
+            cell2.innerHTML = window.formNewUser.newLastName.value;
+            var cell3 = row.insertCell();
+            cell3.innerHTML = window.formNewUser.newAge.value;
+            var cell4 = row.insertCell();
+            cell4.innerHTML = window.formNewUser.newEmail.value;
+            var cell5 = row.insertCell();
+            cell5.innerHTML = rolesList.textContent;
+            var cell6 = row.insertCell();
+            cell6.innerHTML =
+                '<button type="button" onclick="getModalEdit(' + user.id + ')" class="btn btn-primary btn-sm">Edit</button>';
+
+            var cell7 = row.insertCell();
+            cell7.innerHTML =
+                '<button type="button" onclick="getModalDelete(' + user.id + ')" class="btn btn-danger btn-sm">Delete</button>';
 
             window.formNewUser.newName.value = "";
             window.formNewUser.newLastName.value = "";
