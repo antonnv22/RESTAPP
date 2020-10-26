@@ -8,6 +8,7 @@ function showAllUsers() {
         .then(users => {
             users.forEach(function (user) {
                 var row = tBody.insertRow();
+                row.setAttribute("id", user.id);
                 var cell0 = row.insertCell();
                 cell0.innerHTML = user.id;
                 var cell1 = row.insertCell();
